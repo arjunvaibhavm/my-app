@@ -2,19 +2,14 @@ import { useState, useSyncExternalStore } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { HashRouter, Routes, Route } from 'react-router-dom';
 
 import Textform from './components/Textform'
 
-// import About from './components/About'
+import About from './components/About'
 
 import Navbarr from './components/Navbarr'
 import Alert from './components/Alert'
-
-// import {
-//   BrowserRouter as Router,
-//   Routes,
-//   Route
-// } from "react-router-dom";
 
 
 function App() {  
@@ -60,19 +55,22 @@ setalert(null)
 
   return (
     <>
-   {/* <Router> */}
+    <HashRouter>
+   
   <Navbarr title='Textutils' abouttext='about us'  mode={mode} togglemode={togglemode} />
   <Alert alert={alert} />
   <div className="container">
-    {/* <Routes>
-      <Route path="/about" element={<About />} /> */}
-      
-    
-        <Textform heading="Enter the text to analyze" mode={mode} /> 
+    <Routes>
 
-    {/* </Routes> */}
+      <Route path="/about" element={<About mode={mode} />} /> 
+      
+ <Route path="/" element={
+<Textform heading="Enter the text to analyze" mode={mode}/>}/> 
+
+    </Routes>
   </div>
-{/* </Router> */}
+
+</HashRouter>
  {/* <About />                                                      */}
 
 </>
