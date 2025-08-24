@@ -52,15 +52,17 @@ export default function Textform(props) {
     <textarea className= {`form-control bg-${props.mode}`} style={{color:props.mode==='light'?'black':'white'}} value={text} onChange={handleonchange} id="mybox" rows="5" placeholder='enter your text here'></textarea>
     </div>
     
-    <button className="btn btn-primary mx-3" onClick={handleupclick}>Convert to Uppercase</button>
-        <button className="btn btn-primary mx-3" onClick={handleloclick}>Convert to lowercase</button>
-            <button className="btn btn-primary mx-3" onClick={handleclearclick}>Clear Text</button>
+    <button className="btn btn-primary mx-3 my-3" onClick={handleupclick}>Convert to Uppercase</button>
+        <button className="btn btn-primary mx-3 my-3" onClick={handleloclick}>Convert to lowercase</button>
+            <button className="btn btn-primary mx-3 my-3" onClick={handleclearclick}>Clear Text</button>
     </div>
 
 
 <div className="container">
     <h2>Your text Summary</h2>
-    <p>{text.split(' ').length} words  {text.length} characters </p>
+    <p>{text.split(' ').filter((val)=> {
+        return val.length!==0
+    }).length} words  {text.length} characters </p>
     <p>{0.008 * text.split(' ').length}minutes read</p>
     <h3>Preview</h3>
     <p>{text}</p>
